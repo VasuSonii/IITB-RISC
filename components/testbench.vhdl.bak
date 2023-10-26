@@ -1,0 +1,29 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+entity testbench is
+end entity testbench;
+
+architecture bhv of testbench is
+component DSPV is
+Port (
+    clk:in std_logic;
+    Instruction:out std_logic_vector(19 downto 0)
+    );
+end component DSPV;
+
+signal clk_50: std_logic := '1';
+signal instr : std_logic_vector(19 downto 0); 
+constant clk_period : time := 500 ps;
+begin
+	
+	dut_instance: DSPV port map( clk_50, instr);
+	process(clk_50)
+	begin
+	  
+	  clk_50 <= not clk_50 after clk_period/2;
+   end process;	
+
+end bhv;
+	
+

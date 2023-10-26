@@ -1,0 +1,977 @@
+Analysis & Synthesis report for testbench
+Sat May 06 23:36:12 2023
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Port Connectivity Checks: "pipe5:PIPE_5"
+ 15. Port Connectivity Checks: "pipe4:PIPE_4"
+ 16. Port Connectivity Checks: "pipe3:PIPE_3"
+ 17. Port Connectivity Checks: "alu3:ALU_4"
+ 18. Port Connectivity Checks: "alu2:ALU_5"
+ 19. Port Connectivity Checks: "alu2:ALU_2"
+ 20. Port Connectivity Checks: "instrMemory:Instruction_Memory"
+ 21. Port Connectivity Checks: "RF:Register_file"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat May 06 23:36:12 2023       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; testbench                                   ;
+; Top-level Entity Name              ; DSPV                                        ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 1,778                                       ;
+;     Total combinational functions  ; 1,360                                       ;
+;     Dedicated logic registers      ; 673                                         ;
+; Total registers                    ; 673                                         ;
+; Total pins                         ; 21                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M25SAE144C8G     ;                    ;
+; Top-level entity name                                            ; dspv               ; testbench          ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                              ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                       ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
+; dspv.vhdl                        ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/dspv.vhdl            ;         ;
+; zero_9_extender.vhdl             ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/zero_9_extender.vhdl ;         ;
+; SE9.vhdl                         ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/SE9.vhdl             ;         ;
+; SE6.vhdl                         ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/SE6.vhdl             ;         ;
+; register_file.vhdl               ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/register_file.vhdl   ;         ;
+; pipe5.vhdl                       ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/pipe5.vhdl           ;         ;
+; pipe4.vhdl                       ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/pipe4.vhdl           ;         ;
+; pipe3.vhdl                       ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/pipe3.vhdl           ;         ;
+; pipe2.vhdl                       ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/pipe2.vhdl           ;         ;
+; pipe1.vhdl                       ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/pipe1.vhdl           ;         ;
+; one_sub.vhdl                     ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/one_sub.vhdl         ;         ;
+; one_bit_shifter.vhdl             ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/one_bit_shifter.vhdl ;         ;
+; memory_data.vhdl                 ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/memory_data.vhdl     ;         ;
+; instr_memory.vhdl                ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl    ;         ;
+; czregister.vhdl                  ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/czregister.vhdl      ;         ;
+; ALU3.vhdl                        ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/ALU3.vhdl            ;         ;
+; ALU2.vhdl                        ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/ALU2.vhdl            ;         ;
+; ALU1.vhdl                        ; yes             ; User VHDL File  ; C:/Users/Devesh/Desktop/components/components/ALU1.vhdl            ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 1,778     ;
+;                                             ;           ;
+; Total combinational functions               ; 1360      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 861       ;
+;     -- 3 input functions                    ; 249       ;
+;     -- <=2 input functions                  ; 250       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 1208      ;
+;     -- arithmetic mode                      ; 152       ;
+;                                             ;           ;
+; Total registers                             ; 673       ;
+;     -- Dedicated logic registers            ; 673       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 21        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 673       ;
+; Total fan-out                               ; 6440      ;
+; Average fan-out                             ; 3.10      ;
++---------------------------------------------+-----------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                          ;
++-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node          ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                  ; Entity Name ; Library Name ;
++-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------+-------------+--------------+
+; |DSPV                               ; 1360 (688)          ; 673 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 21   ; 0            ; 0          ; |DSPV                                ; DSPV        ; work         ;
+;    |RF:Register_file|               ; 13 (13)             ; 128 (128)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DSPV|RF:Register_file               ; RF          ; work         ;
+;    |alu1:ALU_1|                     ; 217 (217)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DSPV|alu1:ALU_1                     ; alu1        ; work         ;
+;    |alu2:ALU_2|                     ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DSPV|alu2:ALU_2                     ; alu2        ; work         ;
+;    |alu3:ALU_3|                     ; 15 (15)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DSPV|alu3:ALU_3                     ; alu3        ; work         ;
+;    |alu3:ALU_4|                     ; 15 (15)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DSPV|alu3:ALU_4                     ; alu3        ; work         ;
+;    |czregister:czreg|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DSPV|czregister:czreg               ; czregister  ; work         ;
+;    |instrMemory:Instruction_Memory| ; 13 (13)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DSPV|instrMemory:Instruction_Memory ; instrMemory ; work         ;
+;    |memory_d:Data_Memory|           ; 312 (312)           ; 256 (256)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DSPV|memory_d:Data_Memory           ; memory_d    ; work         ;
+;    |pipe1:PIPE_1|                   ; 0 (0)               ; 29 (29)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DSPV|pipe1:PIPE_1                   ; pipe1       ; work         ;
+;    |pipe2:PIPE_2|                   ; 0 (0)               ; 29 (29)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DSPV|pipe2:PIPE_2                   ; pipe2       ; work         ;
+;    |pipe3:PIPE_3|                   ; 50 (50)             ; 63 (63)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DSPV|pipe3:PIPE_3                   ; pipe3       ; work         ;
+;    |pipe4:PIPE_4|                   ; 19 (19)             ; 84 (84)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DSPV|pipe4:PIPE_4                   ; pipe4       ; work         ;
+;    |pipe5:PIPE_5|                   ; 0 (0)               ; 84 (84)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DSPV|pipe5:PIPE_5                   ; pipe5       ; work         ;
++-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                           ;
++-----------------------------------------------------+--------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal            ; Free of Timing Hazards ;
++-----------------------------------------------------+--------------------------------+------------------------+
+; czregister:czreg|cz[1]                              ; sig_cz_wr                      ; yes                    ;
+; czregister:czreg|cz[0]                              ; sig_cz_wr                      ; yes                    ;
+; alu1:ALU_1|aluout[0]                                ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; alu1:ALU_1|aluout[1]                                ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; alu1:ALU_1|aluout[2]                                ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; alu1:ALU_1|aluout[3]                                ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; memory_d:Data_Memory|mem_do[0]                      ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; alu1:ALU_1|aluout[15]                               ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; memory_d:Data_Memory|mem_do[15]                     ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; alu1:ALU_1|aluout[14]                               ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; memory_d:Data_Memory|mem_do[14]                     ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; alu1:ALU_1|aluout[13]                               ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; memory_d:Data_Memory|mem_do[13]                     ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; alu1:ALU_1|aluout[12]                               ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; memory_d:Data_Memory|mem_do[12]                     ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; alu1:ALU_1|aluout[11]                               ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; memory_d:Data_Memory|mem_do[11]                     ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; alu1:ALU_1|aluout[10]                               ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; memory_d:Data_Memory|mem_do[10]                     ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; alu1:ALU_1|aluout[9]                                ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; memory_d:Data_Memory|mem_do[9]                      ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; alu1:ALU_1|aluout[8]                                ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; memory_d:Data_Memory|mem_do[8]                      ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; alu1:ALU_1|aluout[7]                                ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; memory_d:Data_Memory|mem_do[7]                      ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; alu1:ALU_1|aluout[6]                                ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; memory_d:Data_Memory|mem_do[6]                      ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; alu1:ALU_1|aluout[5]                                ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; memory_d:Data_Memory|mem_do[5]                      ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; alu1:ALU_1|aluout[4]                                ; alu1:ALU_1|aluout[15]          ; yes                    ;
+; memory_d:Data_Memory|mem_do[4]                      ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; memory_d:Data_Memory|mem_do[3]                      ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; memory_d:Data_Memory|mem_do[2]                      ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; memory_d:Data_Memory|mem_do[1]                      ; memory_d:Data_Memory|LessThan0 ; yes                    ;
+; Number of user-specified and inferred latches = 34  ;                                ;                        ;
++-----------------------------------------------------+--------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; pipe2:PIPE_2|data[7]                  ; Merged with pipe2:PIPE_2|data[3]       ;
+; pipe2:PIPE_2|data[8]                  ; Merged with pipe2:PIPE_2|data[11]      ;
+; pipe1:PIPE_1|data[7]                  ; Merged with pipe1:PIPE_1|data[3]       ;
+; pipe1:PIPE_1|data[8]                  ; Merged with pipe1:PIPE_1|data[11]      ;
+; pipe1:PIPE_1|data[11]                 ; Stuck at GND due to stuck port data_in ;
+; pipe2:PIPE_2|data[11]                 ; Stuck at GND due to stuck port data_in ;
+; pipe3:PIPE_3|data[11]                 ; Stuck at GND due to stuck port data_in ;
+; pipe4:PIPE_4|data[11]                 ; Stuck at GND due to stuck port data_in ;
+; pipe5:PIPE_5|data[11]                 ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 9 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                              ;
++-----------------------+---------------------------+----------------------------------------------------------------------+
+; Register name         ; Reason for Removal        ; Registers Removed due to This Register                               ;
++-----------------------+---------------------------+----------------------------------------------------------------------+
+; pipe1:PIPE_1|data[11] ; Stuck at GND              ; pipe2:PIPE_2|data[11], pipe3:PIPE_3|data[11], pipe4:PIPE_4|data[11], ;
+;                       ; due to stuck port data_in ; pipe5:PIPE_5|data[11]                                                ;
++-----------------------+---------------------------+----------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 673   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 16    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 448   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Inverted Register Statistics                        ;
++-------------------------------------------+---------+
+; Inverted Register                         ; Fan out ;
++-------------------------------------------+---------+
+; memory_d:Data_Memory|storage[5][0]        ; 1       ;
+; memory_d:Data_Memory|storage[9][0]        ; 1       ;
+; memory_d:Data_Memory|storage[1][0]        ; 1       ;
+; memory_d:Data_Memory|storage[3][0]        ; 1       ;
+; memory_d:Data_Memory|storage[13][0]       ; 1       ;
+; memory_d:Data_Memory|storage[14][0]       ; 1       ;
+; memory_d:Data_Memory|storage[12][0]       ; 1       ;
+; memory_d:Data_Memory|storage[15][0]       ; 1       ;
+; memory_d:Data_Memory|storage[6][15]       ; 1       ;
+; memory_d:Data_Memory|storage[7][15]       ; 1       ;
+; memory_d:Data_Memory|storage[9][15]       ; 1       ;
+; memory_d:Data_Memory|storage[8][15]       ; 1       ;
+; memory_d:Data_Memory|storage[13][15]      ; 1       ;
+; memory_d:Data_Memory|storage[14][15]      ; 1       ;
+; memory_d:Data_Memory|storage[12][15]      ; 1       ;
+; memory_d:Data_Memory|storage[15][15]      ; 1       ;
+; memory_d:Data_Memory|storage[12][14]      ; 1       ;
+; memory_d:Data_Memory|storage[14][14]      ; 1       ;
+; memory_d:Data_Memory|storage[5][14]       ; 1       ;
+; memory_d:Data_Memory|storage[6][14]       ; 1       ;
+; memory_d:Data_Memory|storage[13][14]      ; 1       ;
+; memory_d:Data_Memory|storage[9][14]       ; 1       ;
+; memory_d:Data_Memory|storage[15][14]      ; 1       ;
+; memory_d:Data_Memory|storage[9][13]       ; 1       ;
+; memory_d:Data_Memory|storage[12][13]      ; 1       ;
+; memory_d:Data_Memory|storage[13][13]      ; 1       ;
+; memory_d:Data_Memory|storage[14][13]      ; 1       ;
+; memory_d:Data_Memory|storage[15][13]      ; 1       ;
+; memory_d:Data_Memory|storage[9][12]       ; 1       ;
+; memory_d:Data_Memory|storage[5][12]       ; 1       ;
+; memory_d:Data_Memory|storage[13][12]      ; 1       ;
+; memory_d:Data_Memory|storage[14][12]      ; 1       ;
+; memory_d:Data_Memory|storage[12][12]      ; 1       ;
+; memory_d:Data_Memory|storage[15][12]      ; 1       ;
+; memory_d:Data_Memory|storage[14][11]      ; 1       ;
+; memory_d:Data_Memory|storage[9][11]       ; 1       ;
+; memory_d:Data_Memory|storage[13][11]      ; 1       ;
+; memory_d:Data_Memory|storage[12][11]      ; 1       ;
+; memory_d:Data_Memory|storage[15][11]      ; 1       ;
+; memory_d:Data_Memory|storage[9][10]       ; 1       ;
+; memory_d:Data_Memory|storage[8][10]       ; 1       ;
+; memory_d:Data_Memory|storage[6][10]       ; 1       ;
+; memory_d:Data_Memory|storage[5][10]       ; 1       ;
+; memory_d:Data_Memory|storage[7][10]       ; 1       ;
+; memory_d:Data_Memory|storage[14][10]      ; 1       ;
+; memory_d:Data_Memory|storage[13][10]      ; 1       ;
+; memory_d:Data_Memory|storage[12][10]      ; 1       ;
+; memory_d:Data_Memory|storage[15][10]      ; 1       ;
+; memory_d:Data_Memory|storage[9][9]        ; 1       ;
+; memory_d:Data_Memory|storage[13][9]       ; 1       ;
+; memory_d:Data_Memory|storage[6][9]        ; 1       ;
+; memory_d:Data_Memory|storage[14][9]       ; 1       ;
+; memory_d:Data_Memory|storage[12][9]       ; 1       ;
+; memory_d:Data_Memory|storage[15][9]       ; 1       ;
+; memory_d:Data_Memory|storage[9][8]        ; 1       ;
+; memory_d:Data_Memory|storage[13][8]       ; 1       ;
+; memory_d:Data_Memory|storage[14][8]       ; 1       ;
+; memory_d:Data_Memory|storage[12][8]       ; 1       ;
+; memory_d:Data_Memory|storage[15][8]       ; 1       ;
+; memory_d:Data_Memory|storage[14][7]       ; 1       ;
+; memory_d:Data_Memory|storage[9][7]        ; 1       ;
+; memory_d:Data_Memory|storage[13][7]       ; 1       ;
+; memory_d:Data_Memory|storage[12][7]       ; 1       ;
+; memory_d:Data_Memory|storage[15][7]       ; 1       ;
+; memory_d:Data_Memory|storage[9][6]        ; 1       ;
+; memory_d:Data_Memory|storage[10][6]       ; 1       ;
+; memory_d:Data_Memory|storage[11][6]       ; 1       ;
+; memory_d:Data_Memory|storage[6][6]        ; 1       ;
+; memory_d:Data_Memory|storage[5][6]        ; 1       ;
+; memory_d:Data_Memory|storage[14][6]       ; 1       ;
+; memory_d:Data_Memory|storage[13][6]       ; 1       ;
+; memory_d:Data_Memory|storage[12][6]       ; 1       ;
+; memory_d:Data_Memory|storage[15][6]       ; 1       ;
+; memory_d:Data_Memory|storage[9][5]        ; 1       ;
+; memory_d:Data_Memory|storage[13][5]       ; 1       ;
+; memory_d:Data_Memory|storage[14][5]       ; 1       ;
+; memory_d:Data_Memory|storage[12][5]       ; 1       ;
+; memory_d:Data_Memory|storage[15][5]       ; 1       ;
+; memory_d:Data_Memory|storage[10][4]       ; 1       ;
+; memory_d:Data_Memory|storage[9][4]        ; 1       ;
+; memory_d:Data_Memory|storage[11][4]       ; 1       ;
+; memory_d:Data_Memory|storage[13][4]       ; 1       ;
+; memory_d:Data_Memory|storage[14][4]       ; 1       ;
+; memory_d:Data_Memory|storage[12][4]       ; 1       ;
+; memory_d:Data_Memory|storage[15][4]       ; 1       ;
+; memory_d:Data_Memory|storage[14][3]       ; 1       ;
+; memory_d:Data_Memory|storage[9][3]        ; 1       ;
+; memory_d:Data_Memory|storage[13][3]       ; 1       ;
+; memory_d:Data_Memory|storage[12][3]       ; 1       ;
+; memory_d:Data_Memory|storage[15][3]       ; 1       ;
+; memory_d:Data_Memory|storage[9][2]        ; 1       ;
+; memory_d:Data_Memory|storage[8][2]        ; 1       ;
+; memory_d:Data_Memory|storage[4][2]        ; 1       ;
+; memory_d:Data_Memory|storage[7][2]        ; 1       ;
+; memory_d:Data_Memory|storage[14][2]       ; 1       ;
+; memory_d:Data_Memory|storage[13][2]       ; 1       ;
+; memory_d:Data_Memory|storage[12][2]       ; 1       ;
+; memory_d:Data_Memory|storage[15][2]       ; 1       ;
+; memory_d:Data_Memory|storage[9][1]        ; 1       ;
+; memory_d:Data_Memory|storage[13][1]       ; 1       ;
+; Total number of inverted registers = 107* ;         ;
++-------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |DSPV|pipe4:PIPE_4|data[84]            ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |DSPV|RF:Register_file|registers[0][1] ;
+; 23:1               ; 7 bits    ; 105 LEs       ; 70 LEs               ; 35 LEs                 ; Yes        ; |DSPV|pipe3:PIPE_3|data[62]            ;
+; 23:1               ; 9 bits    ; 135 LEs       ; 99 LEs               ; 36 LEs                 ; Yes        ; |DSPV|pipe3:PIPE_3|data[52]            ;
+; 23:1               ; 7 bits    ; 105 LEs       ; 70 LEs               ; 35 LEs                 ; Yes        ; |DSPV|pipe3:PIPE_3|data[41]            ;
+; 23:1               ; 9 bits    ; 135 LEs       ; 99 LEs               ; 36 LEs                 ; Yes        ; |DSPV|pipe3:PIPE_3|data[36]            ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |DSPV|sig_alu1_b[10]                   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |DSPV|Add3                             ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |DSPV|Add0                             ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |DSPV|sig_rf_d3[15]                    ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |DSPV|sig_rf_d3[8]                     ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |DSPV|memory_d:Data_Memory|Mux14       ;
+; 65:1               ; 15 bits   ; 645 LEs       ; 75 LEs               ; 570 LEs                ; No         ; |DSPV|alu1:ALU_1|aluout[2]             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "pipe5:PIPE_5"                                                                                   ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; wr               ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; data_out[63..48] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "pipe4:PIPE_4" ;
++------+-------+----------+----------------+
+; Port ; Type  ; Severity ; Details        ;
++------+-------+----------+----------------+
+; wr   ; Input ; Info     ; Stuck at VCC   ;
++------+-------+----------+----------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "pipe3:PIPE_3" ;
++------+-------+----------+----------------+
+; Port ; Type  ; Severity ; Details        ;
++------+-------+----------+----------------+
+; wr   ; Input ; Info     ; Stuck at VCC   ;
++------+-------+----------+----------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "alu3:ALU_4"     ;
++----------+-------+----------+--------------+
+; Port     ; Type  ; Severity ; Details      ;
++----------+-------+----------+--------------+
+; b[15..1] ; Input ; Info     ; Stuck at GND ;
+; b[0]     ; Input ; Info     ; Stuck at VCC ;
++----------+-------+----------+--------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "alu2:ALU_5"     ;
++----------+-------+----------+--------------+
+; Port     ; Type  ; Severity ; Details      ;
++----------+-------+----------+--------------+
+; b[15..1] ; Input ; Info     ; Stuck at GND ;
++----------+-------+----------+--------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "alu2:ALU_2"     ;
++----------+-------+----------+--------------+
+; Port     ; Type  ; Severity ; Details      ;
++----------+-------+----------+--------------+
+; b[15..1] ; Input ; Info     ; Stuck at GND ;
++----------+-------+----------+--------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "instrMemory:Instruction_Memory" ;
++----------+-------+----------+------------------------------+
+; Port     ; Type  ; Severity ; Details                      ;
++----------+-------+----------+------------------------------+
+; ins_init ; Input ; Info     ; Stuck at VCC                 ;
++----------+-------+----------+------------------------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "RF:Register_file" ;
++-------+-------+----------+-------------------+
+; Port  ; Type  ; Severity ; Details           ;
++-------+-------+----------+-------------------+
+; pc_en ; Input ; Info     ; Stuck at VCC      ;
++-------+-------+----------+-------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 21                          ;
+; cycloneiii_ff         ; 673                         ;
+;     ENA               ; 448                         ;
+;     SLD               ; 16                          ;
+;     plain             ; 209                         ;
+; cycloneiii_lcell_comb ; 1360                        ;
+;     arith             ; 152                         ;
+;         2 data inputs ; 102                         ;
+;         3 data inputs ; 50                          ;
+;     normal            ; 1208                        ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 114                         ;
+;         2 data inputs ; 32                          ;
+;         3 data inputs ; 199                         ;
+;         4 data inputs ; 861                         ;
+;                       ;                             ;
+; Max LUT depth         ; 13.20                       ;
+; Average LUT depth     ; 6.70                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sat May 06 23:35:54 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DSPV -c testbench
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file testbench.vhdl
+    Info (12022): Found design unit 1: testbench-bhv File: C:/Users/Devesh/Desktop/components/components/testbench.vhdl Line: 7
+    Info (12023): Found entity 1: testbench File: C:/Users/Devesh/Desktop/components/components/testbench.vhdl Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file dspv.vhdl
+    Info (12022): Found design unit 1: DSPV-rtl File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 13
+    Info (12023): Found entity 1: DSPV File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file zero_9_extender.vhdl
+    Info (12022): Found design unit 1: zero_ext9-ZE9 File: C:/Users/Devesh/Desktop/components/components/zero_9_extender.vhdl Line: 11
+    Info (12023): Found entity 1: zero_ext9 File: C:/Users/Devesh/Desktop/components/components/zero_9_extender.vhdl Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file zero_6_extender.vhdl
+    Info (12022): Found design unit 1: zero_ext6-ZE6 File: C:/Users/Devesh/Desktop/components/components/zero_6_extender.vhdl Line: 14
+    Info (12023): Found entity 1: zero_ext6 File: C:/Users/Devesh/Desktop/components/components/zero_6_extender.vhdl Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file se9.vhdl
+    Info (12022): Found design unit 1: sig_ext9-SE9 File: C:/Users/Devesh/Desktop/components/components/SE9.vhdl Line: 11
+    Info (12023): Found entity 1: sig_ext9 File: C:/Users/Devesh/Desktop/components/components/SE9.vhdl Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file se6.vhdl
+    Info (12022): Found design unit 1: sig_ext6-SE6 File: C:/Users/Devesh/Desktop/components/components/SE6.vhdl Line: 14
+    Info (12023): Found entity 1: sig_ext6 File: C:/Users/Devesh/Desktop/components/components/SE6.vhdl Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file register_file.vhdl
+    Info (12022): Found design unit 1: RF-reg_arc File: C:/Users/Devesh/Desktop/components/components/register_file.vhdl Line: 21
+    Info (12023): Found entity 1: RF File: C:/Users/Devesh/Desktop/components/components/register_file.vhdl Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file pipe5.vhdl
+    Info (12022): Found design unit 1: pipe5-pip5 File: C:/Users/Devesh/Desktop/components/components/pipe5.vhdl Line: 15
+    Info (12023): Found entity 1: pipe5 File: C:/Users/Devesh/Desktop/components/components/pipe5.vhdl Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file pipe4.vhdl
+    Info (12022): Found design unit 1: pipe4-pip4 File: C:/Users/Devesh/Desktop/components/components/pipe4.vhdl Line: 19
+    Info (12023): Found entity 1: pipe4 File: C:/Users/Devesh/Desktop/components/components/pipe4.vhdl Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file pipe3.vhdl
+    Info (12022): Found design unit 1: pipe3-pip3 File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 17
+    Info (12023): Found entity 1: pipe3 File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file pipe2.vhdl
+    Info (12022): Found design unit 1: pipe2-pip2 File: C:/Users/Devesh/Desktop/components/components/pipe2.vhdl Line: 14
+    Info (12023): Found entity 1: pipe2 File: C:/Users/Devesh/Desktop/components/components/pipe2.vhdl Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file pipe1.vhdl
+    Info (12022): Found design unit 1: pipe1-pip1 File: C:/Users/Devesh/Desktop/components/components/pipe1.vhdl Line: 16
+    Info (12023): Found entity 1: pipe1 File: C:/Users/Devesh/Desktop/components/components/pipe1.vhdl Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file one_sub.vhdl
+    Info (12022): Found design unit 1: one_subtractor-SUB1 File: C:/Users/Devesh/Desktop/components/components/one_sub.vhdl Line: 17
+    Info (12023): Found entity 1: one_subtractor File: C:/Users/Devesh/Desktop/components/components/one_sub.vhdl Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file one_bit_shifter.vhdl
+    Info (12022): Found design unit 1: one_bit_shifter-LS1 File: C:/Users/Devesh/Desktop/components/components/one_bit_shifter.vhdl Line: 16
+    Info (12023): Found entity 1: one_bit_shifter File: C:/Users/Devesh/Desktop/components/components/one_bit_shifter.vhdl Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file memory_data.vhdl
+    Info (12022): Found design unit 1: memory_d-membehave File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 16
+    Info (12023): Found entity 1: memory_d File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file instr_memory.vhdl
+    Info (12022): Found design unit 1: instrMemory-membehave File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 14
+    Info (12023): Found entity 1: instrMemory File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file czregister.vhdl
+    Info (12022): Found design unit 1: czregister-czr File: C:/Users/Devesh/Desktop/components/components/czregister.vhdl Line: 16
+    Info (12023): Found entity 1: czregister File: C:/Users/Devesh/Desktop/components/components/czregister.vhdl Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file alu3.vhdl
+    Info (12022): Found design unit 1: alu3-behave3 File: C:/Users/Devesh/Desktop/components/components/ALU3.vhdl Line: 13
+    Info (12023): Found entity 1: alu3 File: C:/Users/Devesh/Desktop/components/components/ALU3.vhdl Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file alu2.vhdl
+    Info (12022): Found design unit 1: alu2-behave2 File: C:/Users/Devesh/Desktop/components/components/ALU2.vhdl Line: 14
+    Info (12023): Found entity 1: alu2 File: C:/Users/Devesh/Desktop/components/components/ALU2.vhdl Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file alu1.vhdl
+    Info (12022): Found design unit 1: alu1-behave File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 18
+    Info (12023): Found entity 1: alu1 File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 7
+Info (12127): Elaborating entity "dspv" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(502): signal "sig_pipe5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 502
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(517): signal "sig_pipe5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 517
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(527): signal "sig_pipe5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 527
+Warning (10631): VHDL Process Statement warning at dspv.vhdl(525): inferring latch(es) for signal or variable "wrp3", which holds its previous value in one or more paths through the process File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 525
+Warning (10631): VHDL Process Statement warning at dspv.vhdl(525): inferring latch(es) for signal or variable "wrp4", which holds its previous value in one or more paths through the process File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 525
+Warning (10631): VHDL Process Statement warning at dspv.vhdl(525): inferring latch(es) for signal or variable "wrp5", which holds its previous value in one or more paths through the process File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 525
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(684): signal "sig_alu4_c" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 684
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(753): signal "sig_czout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 753
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(755): signal "sig_czout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 755
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(764): signal "sig_czout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 764
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(766): signal "sig_czout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 766
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(774): signal "sigZE9_op3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 774
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(805): signal "sig_mem_do" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 805
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(814): signal "sig_mem_do" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 814
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(841): signal "sigZE9_op5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 841
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(853): signal "sig_czout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 853
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(855): signal "sig_czout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 855
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(863): signal "sig_czout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 863
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(865): signal "sig_czout" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 865
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(874): signal "sigZE9_op3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 874
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(905): signal "sig_mem_do" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 905
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(909): signal "sig_mem_do" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 909
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(940): signal "sigZE9_op5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 940
+Warning (10492): VHDL Process Statement warning at dspv.vhdl(952): signal "sig_pipe5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 952
+Info (10635): VHDL Report Statement at dspv.vhdl(968): "pipe1------> :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 968
+Info (10635): VHDL Report Statement at dspv.vhdl(969): "pipe2 ------> :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 969
+Info (10635): VHDL Report Statement at dspv.vhdl(970): "pipe3 ------->:0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 970
+Info (10635): VHDL Report Statement at dspv.vhdl(971): "pipe4--------> :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 971
+Info (10635): VHDL Report Statement at dspv.vhdl(972): "pipe5 --------> :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 972
+Info (10635): VHDL Report Statement at dspv.vhdl(976): "pipe4 last bits ---->:0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 976
+Info (10041): Inferred latch for "wrp5" at dspv.vhdl(525) File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 525
+Info (10041): Inferred latch for "wrp4" at dspv.vhdl(525) File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 525
+Info (10041): Inferred latch for "wrp3" at dspv.vhdl(525) File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 525
+Info (12128): Elaborating entity "zero_ext9" for hierarchy "zero_ext9:ZE_9_1" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 330
+Info (12128): Elaborating entity "sig_ext9" for hierarchy "sig_ext9:SE_9_1" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 339
+Info (12128): Elaborating entity "sig_ext6" for hierarchy "sig_ext6:SE_6_1" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 347
+Info (10635): VHDL Report Statement at SE6.vhdl(20): "YASHVIR---------->in6:0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/SE6.vhdl Line: 20
+Info (12128): Elaborating entity "one_bit_shifter" for hierarchy "one_bit_shifter:shifter" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 357
+Info (12128): Elaborating entity "one_subtractor" for hierarchy "one_subtractor:subtractor" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 361
+Info (12128): Elaborating entity "czregister" for hierarchy "czregister:czreg" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 366
+Warning (10492): VHDL Process Statement warning at czregister.vhdl(21): signal "wr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/czregister.vhdl Line: 21
+Warning (10631): VHDL Process Statement warning at czregister.vhdl(19): inferring latch(es) for signal or variable "cz", which holds its previous value in one or more paths through the process File: C:/Users/Devesh/Desktop/components/components/czregister.vhdl Line: 19
+Info (10041): Inferred latch for "cz[0]" at czregister.vhdl(19) File: C:/Users/Devesh/Desktop/components/components/czregister.vhdl Line: 19
+Info (10041): Inferred latch for "cz[1]" at czregister.vhdl(19) File: C:/Users/Devesh/Desktop/components/components/czregister.vhdl Line: 19
+Info (12128): Elaborating entity "RF" for hierarchy "RF:Register_file" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 371
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(58): signal "registers" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/register_file.vhdl Line: 58
+Info (10635): VHDL Report Statement at register_file.vhdl(58): "reg1----------------->  :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/register_file.vhdl Line: 58
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(59): signal "registers" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/register_file.vhdl Line: 59
+Info (10635): VHDL Report Statement at register_file.vhdl(59): "reg2----------------->  :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/register_file.vhdl Line: 59
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(60): signal "registers" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/register_file.vhdl Line: 60
+Info (10635): VHDL Report Statement at register_file.vhdl(60): "reg3----------------->  :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/register_file.vhdl Line: 60
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(61): signal "registers" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/register_file.vhdl Line: 61
+Info (10635): VHDL Report Statement at register_file.vhdl(61): "reg4----------------->  :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/register_file.vhdl Line: 61
+Warning (10492): VHDL Process Statement warning at register_file.vhdl(62): signal "registers" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Devesh/Desktop/components/components/register_file.vhdl Line: 62
+Info (10635): VHDL Report Statement at register_file.vhdl(62): "reg5----------------->  :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/register_file.vhdl Line: 62
+Info (12128): Elaborating entity "instrMemory" for hierarchy "instrMemory:Instruction_Memory" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 386
+Info (10635): VHDL Report Statement at instr_memory.vhdl(20): "instr memory adddress:0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 20
+Warning (10631): VHDL Process Statement warning at instr_memory.vhdl(18): inferring latch(es) for signal or variable "storage", which holds its previous value in one or more paths through the process File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Warning (10873): Using initial value X (don't care) for net "storage[10..15]" at instr_memory.vhdl(16) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 16
+Info (10041): Inferred latch for "storage[9][0]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][1]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][2]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][3]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][4]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][5]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][6]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][7]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][8]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][9]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][10]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][11]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][12]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][13]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][14]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[9][15]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][0]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][1]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][2]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][3]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][4]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][5]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][6]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][7]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][8]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][9]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][10]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][11]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][12]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][13]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][14]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[8][15]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][0]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][1]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][2]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][3]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][4]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][5]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][6]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][7]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][8]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][9]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][10]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][11]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][12]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][13]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][14]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[7][15]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][0]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][1]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][2]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][3]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][4]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][5]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][6]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][7]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][8]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][9]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][10]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][11]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][12]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][13]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][14]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[6][15]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][0]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][1]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][2]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][3]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][4]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][5]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][6]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][7]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][8]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][9]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][10]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][11]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][12]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][13]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][14]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[5][15]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][0]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][1]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][2]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][3]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][4]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][5]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][6]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][7]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][8]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][9]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][10]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][11]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][12]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][13]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][14]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[4][15]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][0]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][1]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][2]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][3]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][4]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][5]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][6]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][7]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][8]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][9]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][10]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][11]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][12]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][13]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][14]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[3][15]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][0]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][1]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][2]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][3]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][4]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][5]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][6]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][7]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][8]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][9]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][10]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][11]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][12]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][13]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][14]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[2][15]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][0]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][1]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][2]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][3]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][4]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][5]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][6]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][7]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][8]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][9]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][10]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][11]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][12]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][13]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][14]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[1][15]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][0]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][1]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][2]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][3]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][4]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][5]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][6]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][7]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][8]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][9]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][10]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][11]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][12]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][13]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][14]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (10041): Inferred latch for "storage[0][15]" at instr_memory.vhdl(18) File: C:/Users/Devesh/Desktop/components/components/instr_memory.vhdl Line: 18
+Info (12128): Elaborating entity "alu2" for hierarchy "alu2:ALU_2" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 393
+Info (12128): Elaborating entity "alu1" for hierarchy "alu1:ALU_1" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 400
+Warning (10631): VHDL Process Statement warning at ALU1.vhdl(20): inferring latch(es) for signal or variable "aluout", which holds its previous value in one or more paths through the process File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[0]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[1]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[2]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[3]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[4]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[5]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[6]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[7]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[8]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[9]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[10]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[11]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[12]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[13]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[14]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (10041): Inferred latch for "aluout[15]" at ALU1.vhdl(20) File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+Info (12128): Elaborating entity "memory_d" for hierarchy "memory_d:Data_Memory" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 412
+Info (10635): VHDL Report Statement at memory_data.vhdl(37): "memory data mem add :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 37
+Info (10635): VHDL Report Statement at memory_data.vhdl(46): "MRD 1 mem_add in memory :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 46
+Info (10635): VHDL Report Statement at memory_data.vhdl(52): "mem_add 0 in memory :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 52
+Info (10635): VHDL Report Statement at memory_data.vhdl(53): "mem_add 1 in memory :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 53
+Info (10635): VHDL Report Statement at memory_data.vhdl(54): "mem_add 2 in memory :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 54
+Info (10635): VHDL Report Statement at memory_data.vhdl(55): "mem_add 3 in memory :0" (NOTE) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 55
+Warning (10631): VHDL Process Statement warning at memory_data.vhdl(35): inferring latch(es) for signal or variable "mem_do", which holds its previous value in one or more paths through the process File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[0]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[1]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[2]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[3]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[4]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[5]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[6]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[7]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[8]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[9]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[10]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[11]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[12]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[13]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[14]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (10041): Inferred latch for "mem_do[15]" at memory_data.vhdl(35) File: C:/Users/Devesh/Desktop/components/components/memory_data.vhdl Line: 35
+Info (12128): Elaborating entity "alu3" for hierarchy "alu3:ALU_3" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 430
+Info (12128): Elaborating entity "pipe1" for hierarchy "pipe1:PIPE_1" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 443
+Info (12128): Elaborating entity "pipe2" for hierarchy "pipe2:PIPE_2" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 452
+Info (12128): Elaborating entity "pipe3" for hierarchy "pipe3:PIPE_3" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 460
+Info (12128): Elaborating entity "pipe4" for hierarchy "pipe4:PIPE_4" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 471
+Info (12128): Elaborating entity "pipe5" for hierarchy "pipe5:PIPE_5" File: C:/Users/Devesh/Desktop/components/components/dspv.vhdl Line: 483
+Warning (13012): Latch czregister:czreg|cz[1] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/czregister.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch czregister:czreg|cz[0] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/czregister.vhdl Line: 19
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[0] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[1] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[2] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[3] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[15] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[14] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[13] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[12] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[11] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[10] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[9] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[8] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[7] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[6] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[5] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Warning (13012): Latch alu1:ALU_1|aluout[4] has unsafe behavior File: C:/Users/Devesh/Desktop/components/components/ALU1.vhdl Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal pipe3:PIPE_3|data[15] File: C:/Users/Devesh/Desktop/components/components/pipe3.vhdl Line: 23
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1849 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 20 output pins
+    Info (21061): Implemented 1828 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 72 warnings
+    Info: Peak virtual memory: 4791 megabytes
+    Info: Processing ended: Sat May 06 23:36:12 2023
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:33
+
+

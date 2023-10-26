@@ -1,0 +1,18 @@
+Fitter Status : Successful - Fri May 05 00:03:36 2023
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : testbench
+Top-level Entity Name : DSPV
+Family : MAX 10
+Device : 10M25SAE144C8G
+Timing Models : Final
+Total logic elements : 7,797 / 24,960 ( 31 % )
+    Total combinational functions : 7,639 / 24,960 ( 31 % )
+    Dedicated logic registers : 4,507 / 24,960 ( 18 % )
+Total registers : 4507
+Total pins : 21 / 101 ( 21 % )
+Total virtual pins : 0
+Total memory bits : 0 / 691,200 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 110 ( 0 % )
+Total PLLs : 0 / 1 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )
